@@ -18,8 +18,6 @@ const homePageMutations = {
 
         await sequelize.sync()
 
-        console.log(args.homePageInfo)
-
         await homepageInfo.create(
             {
                 articleInfos: [

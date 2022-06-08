@@ -1,5 +1,8 @@
 type HomePage implements Timestamps {
     id: ID!
+    articleInfos: [HomePageInfo]!
+    vocabularySetInfos: [HomePageInfo]!
+    themeInfos: [HomePageInfo]!
 
     createdAt: Date!
     updatedAt: Date!

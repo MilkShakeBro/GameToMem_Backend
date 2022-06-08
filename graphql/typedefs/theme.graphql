@@ -2,6 +2,7 @@ type Theme implements Timestamps {
     id: ID!
     name: String!
     image: String!
+    flashcards: [Flashcard]!
 
     createdAt: Date!
     updatedAt: Date!
@@ -11,6 +12,7 @@ type Flashcard {
     id: ID!
     word: String!
     chinese: String!
+    coordinate: Coordinate!
 }
 
 type Coordinate {

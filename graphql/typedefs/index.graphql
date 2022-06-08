@@ -24,7 +24,7 @@ type Query {
 
   # Homepage
   homePageInfos: [HomePage]
-  homePageInfo(name: String!): HomePage
+  homePageInfo(id: String!): HomePage
 
   # Person
   personalInfos: [Person]

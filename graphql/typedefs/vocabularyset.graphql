@@ -3,6 +3,7 @@ type VocabularySet implements Timestamps {
   id: ID!
   name: String!
   image: String!
+  vocabularies: [Vocabulary]!
 
   # Interface required
   createdAt: Date!

@@ -1,3 +1,4 @@
+import { vocabularySetModel } from '../../../models/vocabularySet/vocabularySetModel'
 import { vocabularyModel } from "../../../models/vocabularySet/vocabularyModel";
 import { sequelize } from "../../../database"; 
 
@@ -5,23 +6,30 @@ const vocabularySetQueries = {
 
     vocabularySets: async function () {
 
-        // Vocabulary Sets
-        const vocabularySets = vocabularyModel(sequelize);
+        const vocabularySets = vocabularySetModel(sequelize);
+        const vocabulary = vocabularyModel(sequelize);
+
+        vocabularySets.hasMany(vocabulary);
+
         await sequelize.sync();
 
-        return await vocabularySets.findAll();
+        return await vocabularySets.findAll({
+            include: [ vocabulary ]
+        });
     }
     ,
     vocabularySet: async function (_, args) {
 
-        // Vocabulary Sets
-        const vocabularySet = vocabularyModel(sequelize);
-        await sequelize.sync();
+        const vocabularySet = vocabularySetModel(sequelize);
+        const vocabulary = vocabularyModel(sequelize);
+
+        vocabularySet.hasMany(vocabulary);
 
         return await vocabularySet.findOne({
             where: {
                 name: args.name
-            }
+            },
+            include: [ vocabulary ]
         });
     }
 }

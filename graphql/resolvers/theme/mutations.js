@@ -6,8 +6,6 @@ import { sequelize } from "../../../database"
 const themeMutations = {
     createTheme: async (_, args) => {
 
-        console.log(args.theme.flashcards[0].coordinate.x)
-
         const theme = themeModel(sequelize)
         const vocabulary_model = vocabulary(sequelize)
         const coordinate_model = coordinate(sequelize)

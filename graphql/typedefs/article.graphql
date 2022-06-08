@@ -4,6 +4,8 @@ type Article implements Timestamps {
   id: ID!
   name: String!
   image: String!
+  answers: [ArticleAnswer]!
+  questions: [ArticleQuestion]!
   content: String!
 
   # Interface required
@@ -13,12 +15,14 @@ type Article implements Timestamps {
 
 type ArticleAnswer {
     id: ID!
-    answer: String!
+    answer_id: ID!
+    answer_string: String!
 }
 
 type ArticleQuestion {
     id: ID!
-    questions: [String]!
+    question_id: ID!
+    question_string: [String]!
 }
 
 # Inputs

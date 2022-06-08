@@ -7,21 +7,46 @@ import { sequelize } from "../../../database"
 const homePageQueries = {
     homePageInfos: async () => {
 
-        const homePageInfos = homePageModel(sequelize)
-        await homePageInfos.sync()
+        const homepageInfos = homePageModel(sequelize);
+        const articleinfo = articleInfo(sequelize);
+        const vocabularysetInfo = vocabularySetInfo(sequelize);
+        const themeinfo = themeInfo(sequelize);
 
-        return await homePageInfos.findAll()
+        homepageInfos.hasMany(articleinfo);
+        homepageInfos.hasMany(vocabularysetInfo);
+        homepageInfos.hasMany(themeinfo);
+
+        await sequelize.sync()
+
+        return await homepageInfos.findAll({
+            include: [
+                articleinfo,
+                vocabularysetInfo,
+                themeinfo
+            ]
+        })
 
     },
     homePageInfo: async (_, args) => {
 
-        const homePageInfo = homePageModel(sequelize)
-        await homePageInfo.sync()
+        const homepageInfo = homePageModel(sequelize);
+        const articleinfo = articleInfo(sequelize);
+        const vocabularysetInfo = vocabularySetInfo(sequelize);
+        const themeinfo = themeInfo(sequelize);
 
-        return await homePageInfo.findOne({
+        homepageInfo.hasMany(articleinfo);
+        homepageInfo.hasMany(vocabularysetInfo);
+        homepageInfo.hasMany(themeinfo);
+
+        return await homepageInfo.findOne({
             where: {
-                name: args.name
-            }
+                id: args.id
+            },
+            include: [
+                articleinfo,
+                vocabularysetInfo,
+                themeinfo
+            ]
         })
     }
 }
