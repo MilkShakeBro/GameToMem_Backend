@@ -1,0 +1,42 @@
+type Theme implements Timestamps {
+    id: ID!
+    name: String!
+    image: String!
+
+    createdAt: Date!
+    updatedAt: Date!
+}
+
+type Flashcard {
+    id: ID!
+    word: String!
+    chinese: String!
+}
+
+type Coordinate {
+    id: ID!
+    x: Float!
+    y: Float!
+}
+
+input ThemeCreateInput {
+    name: String!
+    image: String!
+    flashcards: [FlashcardInput]!
+}
+
+input ThemeUpdateInput {
+    image: String!
+    flashcards: [FlashcardInput]!
+}
+
+input FlashcardInput {
+    word: String!
+    chinese: String!
+    coordinate: CoordinateInput!
+}
+
+input CoordinateInput {
+    x: Float!
+    y: Float!
+}

@@ -1,0 +1,37 @@
+# Types
+type VocabularySet implements Timestamps { 
+  id: ID!
+  name: String!
+  image: String!
+
+  # Interface required
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type Vocabulary {
+    id: ID!
+    word: String!
+    chinese: String!
+    breakpoint: Int!
+}
+
+# Inputs
+input VocabularySetCreateInput {
+  name: String!
+  image: String!
+  vocabularySet: [VocabularyInput]!
+}
+
+input VocabularySetUpdateInput {
+  name: String!
+  image: String!
+  vocabularySet: [VocabularyInput]!
+}
+
+input VocabularyInput {
+    id: ID!
+    word: String!
+    chinese: String!
+    breakpoint: Int!
+}

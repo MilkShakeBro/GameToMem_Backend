@@ -1,0 +1,49 @@
+# Types
+
+type Article implements Timestamps { 
+  id: ID!
+  name: String!
+  image: String!
+  content: String!
+
+  # Interface required
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type ArticleAnswer {
+    id: ID!
+    answer: String!
+}
+
+type ArticleQuestion {
+    id: ID!
+    questions: [String]!
+}
+
+# Inputs
+input ArticleCreateInput {
+  name: String!
+  image: String!
+  answer: [ArticleAnswerInput]!
+  question: [ArticleQuestionInput]!
+  content: String!
+}
+
+input ArticleUpdateInput {
+  name: String!
+  image: String!
+  answer: [ArticleAnswerInput]!
+  question: [ArticleQuestionInput]!
+  content: String!
+}
+
+input ArticleAnswerInput {
+    id: ID!
+    answer: String!
+}
+
+input ArticleQuestionInput {
+    id: ID!
+    questions: [String]!
+}

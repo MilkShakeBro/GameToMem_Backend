@@ -1,0 +1,15 @@
+type Person implements Timestamps {
+    id: ID!
+    name: String!
+
+    createdAt: Date!
+    updatedAt: Date!
+}
+
+input PersonInfoCreateInput {
+    name: String!
+}
+
+input PersonInfoUpdateInput {
+    name: String!
+}

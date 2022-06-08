@@ -1,0 +1,29 @@
+type HomePage implements Timestamps {
+    id: ID!
+
+    createdAt: Date!
+    updatedAt: Date!
+}
+
+type HomePageInfo {
+    id: ID!
+    image: String!
+    name: String!
+}
+
+input HomePageInfoCreateInput {
+    articleInfo: [HomePageInfoInput]!
+    vocabularySetInfo: [HomePageInfoInput]!
+    themeInfo: [HomePageInfoInput]!
+}
+
+input HomePageInfoUpdateInput {
+    articleInfo: [HomePageInfoInput]!
+    vocabularySetInfo: [HomePageInfoInput]!
+    themeInfo: [HomePageInfoInput]!
+}
+
+input HomePageInfoInput {
+    image: String!
+    name: String!
+}

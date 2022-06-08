@@ -1,0 +1,24 @@
+type AchievementSet implements Timestamps {
+    id: ID!
+    name: String!
+    image: String!
+    description: String!
+    obtained: Boolean!
+
+    createdAt: Date!
+    updatedAt: Date!
+}
+
+input AchievementSetCreateInput {
+    name: String!
+    image: String!
+    description: String!
+    obtained: Boolean!
+}
+
+input AchievementSetUpdateInput {
+    name: String!
+    image: String!
+    description: String!
+    obtained: Boolean!
+}

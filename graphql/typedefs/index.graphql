@@ -1,0 +1,68 @@
+# Custom Scalars
+scalar Date
+
+type Query {
+
+  # Version
+  version: String!
+
+  # Article
+  articles: [Article]
+  article(name: String!): Article
+
+  # Vocabulary Set
+  vocabularySets: [VocabularySet]
+  vocabularySet(name: String!): VocabularySet
+
+  # Achievement Set
+  achievementSets: [AchievementSet]
+  achievementSet(name: String!): AchievementSet
+
+  # Theme
+  themes: [Theme]
+  theme(name: String!): Theme
+
+  # Homepage
+  homePageInfos: [HomePage]
+  homePageInfo(name: String!): HomePage
+
+  # Person
+  personalInfos: [Person]
+  personalInfo(name: String!): Person
+
+}
+
+# 修改db
+type Mutation {
+
+  # Article
+  createArticle(article: ArticleCreateInput): Article!
+  updateArticle(name: String!, update_content: ArticleUpdateInput): Article!
+  deleteArticle(name: String!): [Article]
+
+  # Vocabulary Set
+  createVocabularySet(vocabularySet: VocabularySetCreateInput): VocabularySet!
+  updateVocabularySet(name: String!, update_content: VocabularySetUpdateInput): VocabularySet!
+  deleteVocabularySet(name: String!): [VocabularySet]
+
+  # Achievement Set
+  createAchievementSet(achievement: AchievementSetCreateInput): AchievementSet!
+  updateAchievementSet(name: String!, update_content: AchievementSetUpdateInput): AchievementSet!
+  deleteAchievementSet(name: String!): [AchievementSet]
+
+  # Theme
+  createTheme(theme: ThemeCreateInput): Theme!
+  updateTheme(name: String!, update_content: ThemeUpdateInput): Theme!
+  deleteTheme(name: String!): [Theme]
+
+  # Homepage Info
+  createHomePageInfo(homePageInfo: HomePageInfoCreateInput): [HomePage]!
+  updateHomePageInfo(name: String!, update_content: HomePageInfoUpdateInput): HomePageInfo!
+  deleteHomePageInfo(name: String!): [HomePageInfo]
+
+  # Person Info
+  createPersonInfo(personInfo: PersonInfoCreateInput): Person!
+  updatePersonInfo(name: String!, update_content: PersonInfoUpdateInput): Person!
+  deletePersonInfo(name: String!): [Person]
+
+}
